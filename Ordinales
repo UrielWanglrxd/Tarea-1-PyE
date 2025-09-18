@@ -259,6 +259,85 @@ tabla_Reseñas
 porcentajes <- prop.table(tabla_Reseñas) * 100
 porcentajes
 ```
+##Ejercicio 5--------------------------------------
+---
+title: "Ordinal Rangos"
+author: "Alan Uriel Perez Huerta"
+date: "2025-09-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+Rangos <- c("Principiante", "Principiante", "Aprendiz", "Intermedio", "Experto",
+            "Intermedio", "Experto", "Aprendiz", "Principiante", "Avanzado",
+            "Intermedio", "Experto", "Experto", "Experto", "Avanzado", "Intermedio",
+            "Intermedio", "Principiante", "Principiante", "Principiante",
+            "Principiante", "Principiante", "Intermedio", "Aprendiz", "Aprendiz",
+            "Aprendiz", "Intermedio", "Aprendiz", "Principiante", "Intermedio",
+            "Avanzado", "Avanzado", "Intermedio", "Avanzado", "Principiante",
+            "Intermedio", "Avanzado", "Intermedio", "Avanzado")
+```
+
+
+```{r}
+niveles_rangos <- c("Principiante", "Aprendiz", "Intermedio", "Avanzado", "Experto")
+
+Rangos <- factor(Rangos,
+                 levels = niveles_rangos,
+                 ordered = TRUE)
+```
+
+
+
+```{r}
+tabla_Rangos <- table(Rangos)
+tabla_Rangos
+```
+
+
+
+```{r}
+porcentajes <- prop.table(tabla_Rangos) * 100
+porcentajes
+```
+
+
+
+
+```{r}
+numeros <- as.numeric(Rangos)
+
+mediana <- median(numeros)
+cuartiles <- quantile(numeros, probs = c(0.25, 0.5, 0.75))
+
+cat("Mediana: ", niveles_rangos[mediana], "\n")
+cat("Cuartiles:\n")
+cat("Q1: ", niveles_rangos[cuartiles[1]], "\n")
+cat("Q2: ", niveles_rangos[cuartiles[2]], "\n")
+cat("Q3: ", niveles_rangos[cuartiles[3]], "\n")
+```
+
+
+
+```{r}
+barplot(tabla_Rangos,
+        col = c("lightgreen", "pink", "cornflowerblue", "orange", "maroon"),
+        main = "Distribución de Rangos",
+        ylab = "Frecuencia",
+        las = 2)
+```
+
+
+```{r}
+pie(tabla_Rangos,
+    col = rainbow(length(tabla_Rangos)),
+    main = "Distribución de Rangos",
+    labels = paste(names(tabla_Rangos), round(porcentajes, 1), "%"))
+```
 
 ```{r}
 numeros <- as.numeric(Reseñas)
