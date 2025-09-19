@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 Ocupacion <- c("Desempleado", "Estudiante", "Empleado", "Empleado", "Estudiante", "Empleado", "Empleado", "Empleado", "Jubilado", "Jubilado", "Jubilado", "Jubilado", "Jubilado", "Estudiante", "Desempleado", "Desempleado", "Jubilado", "Empleado", "Estudiante", "Estudiante", "Empleado", "Desempleado", "Estudiante", "Desempleado", "Jubilado", "Empleado", "Jubilado", "Desempleado", "Desempleado", "Desempleado")
                
+
 ```
 
 ```{r}
